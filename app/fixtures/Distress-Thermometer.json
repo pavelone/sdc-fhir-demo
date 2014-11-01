@@ -212,7 +212,11 @@
         "header" : "Instructions: First please enter the number (0-10) that best describes how much distress you have been experiencing in the past week including today.",
         "question" : [
           {
-            "text" : "Distress"
+            "text" : "Distress",
+            "extension": [{
+              "url": "http://hl7.org/fhir/questionnaire-extensions#answerFormat",
+              "valueCode": "decimal"
+            }]
           }
         ]
       },
