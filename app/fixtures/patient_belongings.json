@@ -6,7 +6,7 @@
   },
   "contained": [{
     "resourceType": "ValueSet",
-    "_id": "sent-home-clothing-values",
+    "id": "sent-home-clothing-values",
     "name": "SentHomeClothingValueSet",
     "status": "draft",
     "expansion": {
@@ -74,7 +74,17 @@
             "text" : "Sent Home",
             "options": {
               "reference": "#sent-home-clothing-values"
-            }
+            },
+            "extension": [
+              {
+                "url": "http://sdc/multipleCardinality", 
+                "valueBoolean": true
+              }, 
+              {
+                "url": "http://hl7.org/fhir/questionnaire-extensions#answerFormat", 
+                "valueCode": "string"
+              }
+            ]
           },
           {
             "text" : "In the patient B. bag"
