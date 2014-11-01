@@ -1,0 +1,313 @@
+{
+  "resourceType": "Questionnaire",
+  "text": {
+    "status": "generated",
+    "div": "<div>\n  </div>"
+  },
+  "contained": [{
+    "resourceType": "ValueSet",
+    "id": "practical-problems-values",
+    "name": "PracticalProblemsValueSet",
+    "status": "draft",
+    "expansion": {
+      "timestamp": "2014-04-23T11:00:00",
+      "contains": [{
+        "code": "childcare",
+        "display": "Child care"
+      }, {
+        "code": "housing",
+        "display": "Housing"
+      }, {
+        "code": "insurancefinancial",
+        "display": "Insurance/financial"
+      }, {
+        "code": "transportation",
+        "display": "Transportation"
+      }, {
+        "code": "workschool",
+        "display": "Work/school"
+      }, {
+        "code": "treatmentdecisions",
+        "display": "Treatment decisions"
+      }]
+    }
+  },
+  {
+    "resourceType": "ValueSet",
+    "id": "family-problems-values",
+    "name": "FamilyProblemsValueSet",
+    "status": "draft",
+    "expansion": {
+      "timestamp": "2014-04-23T11:00:00",
+      "contains": [{
+        "code": "dealingwithchildren",
+        "display": "Dealing with children"
+      }, {
+        "code": "dealingwithpartner",
+        "display": "Dealing with partner"
+      }, {
+        "code": "abilitytohavechildren",
+        "display": "Ability to have children"
+      }, {
+        "code": "familyhealthissues",
+        "display": "Family health issues"
+      }]
+    }
+  },
+  {
+    "resourceType": "ValueSet",
+    "id": "emotional-problems-values",
+    "name": "EmotionalProblemsValueSet",
+    "status": "draft",
+    "expansion": {
+      "timestamp": "2014-04-23T11:00:00",
+      "contains": [{
+        "code": "depression",
+        "display": "Depression"
+      }, {
+        "code": "fears",
+        "display": "Fears"
+      }, {
+        "code": "nervousness",
+        "display": "Nervousness"
+      }, {
+        "code": "sadness",
+        "display": "Sadness"
+      }, {
+        "code": "worry",
+        "display": "Worry"
+      }, {
+        "code": "lossofinterestinusualactivities",
+        "display": "Loss of interest in usual activities"
+      }]
+    }
+  },
+  {
+    "resourceType": "ValueSet",
+    "id": "spiritual-religious-concerns-values",
+    "name": "SpiritualReligiousConcernsValueSet",
+    "status": "draft",
+    "expansion": {
+      "timestamp": "2014-04-23T11:00:00",
+      "contains": [{
+        "code": "spiritualreligiousconcerns",
+        "display": "Spiritual/religious concerns"
+      }]
+    }
+  },
+  {
+    "resourceType": "ValueSet",
+    "id": "physical-problems-values",
+    "name": "PhysicalProblemsValueSet",
+    "status": "draft",
+    "expansion": {
+      "timestamp": "2014-04-23T11:00:00",
+      "contains": [{
+        "code": "appearance",
+        "display": "Appearance"
+      }, {
+        "code": "bathingdressing",
+        "display": "Bathing/dressing"
+      }, {
+        "code": "breathing",
+        "display": "Breathing"
+      }, {
+        "code": "changesinurination",
+        "display": "Changes in urination"
+      }, {
+        "code": "constipation",
+        "display": "Constipation"
+      }, {
+        "code": "diarrhea",
+        "display": "Diarrhea"
+      }, {
+        "code": "eating",
+        "display": "Eating"
+      }, {
+        "code": "fatigue",
+        "display": "Fatigue"
+      }, {
+        "code": "feelingswollen",
+        "display": "Feeling Swollen"
+      }, {
+        "code": "fevers",
+        "display": "Fevers"
+      }, {
+        "code": "gettingaround",
+        "display": "Getting around"
+      }, {
+        "code": "indigestion",
+        "display": "Indigestion"
+      }, {
+        "code": "memoryconcentration",
+        "display": "Memory/concentration"
+      }, {
+        "code": "mouthsores",
+        "display": "Mouth sores"
+      }, {
+        "code": "nausea",
+        "display": "Nausea"
+      }, {
+        "code": "nosedrycongested",
+        "display": "Nose dry/congested"
+      }, {
+        "code": "pain",
+        "display": "Pain"
+      }, {
+        "code": "sexual",
+        "display": "Sexual"
+      }, {
+        "code": "skindryitchy",
+        "display": "Skin dry/itchy"
+      }, {
+        "code": "sleep",
+        "display": "Sleep"
+      }, {
+        "code": "substanceabuse",
+        "display": "Substance abuse"
+      }, {
+        "code": "tinglinginhandsfeet",
+        "display": "Tingling in hands/feet"
+      }]
+    }
+  }
+  ],  
+  "name" : {
+    "coding" : [
+      {
+        "system" : "",
+        "code" : "",
+        "display" : "NCCN Distress Thermometer for Patients"
+      }
+    ],
+    "text" : "NCCN Distress Thermometer for Patients"
+  },
+  "status": "draft",
+  "authored": "2014-05-01",
+  "group": {
+    "header": "NCCN Distress Thermometer for Patients",
+    "group": [
+      {
+        "header" : "",
+        "question" : [
+          {
+            "text" : "Patient name"
+          },
+          {
+            "text" : "Date/time", 
+            "extension": [
+              {
+                "url": "http://sdc/multipleCardinality", 
+                "valueBoolean": false
+              }, 
+              {
+                "url": "http://hl7.org/fhir/questionnaire-extensions#answerFormat", 
+                "valueCode": "date"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "header" : "Instructions: First please enter the number (0-10) that best describes how much distress you have been experiencing in the past week including today.",
+        "question" : [
+          {
+            "text" : "Distress",
+            "extension": [{
+              "url": "http://hl7.org/fhir/questionnaire-extensions#answerFormat",
+              "valueCode": "decimal"
+            }]
+          }
+        ]
+      },
+      {
+        "header" : "Second, please indicate if any of the following has been a problem for you in the past week including today. Be sure to check YES or NO for each.",
+        "question" : [
+          {
+            "text" : "Practical Problems",
+            "options": {
+              "reference": "#practical-problems-values"
+            },
+            "extension": [
+              {
+                "url": "http://sdc/multipleCardinality", 
+                "valueBoolean": true
+              }, 
+              {
+                "url": "http://hl7.org/fhir/questionnaire-extensions#answerFormat", 
+                "valueCode": "string"
+              }
+            ]
+          },
+          {
+            "text" : "Family Problems",
+            "options": {
+              "reference": "#family-problems-values"
+            },
+            "extension": [
+              {
+                "url": "http://sdc/multipleCardinality", 
+                "valueBoolean": true
+              }, 
+              {
+                "url": "http://hl7.org/fhir/questionnaire-extensions#answerFormat", 
+                "valueCode": "string"
+              }
+            ]
+          },
+          {
+            "text" : "Emotional Problems",
+            "options": {
+              "reference": "#emotional-problems-values"
+            },
+            "extension": [
+              {
+                "url": "http://sdc/multipleCardinality", 
+                "valueBoolean": true
+              }, 
+              {
+                "url": "http://hl7.org/fhir/questionnaire-extensions#answerFormat", 
+                "valueCode": "string"
+              }
+            ]
+          },
+          {
+            "text" : "Spiritual/religious concerns",
+            "options": {
+              "reference": "#spiritual-religious-concerns-values"
+            },
+            "extension": [
+              {
+                "url": "http://sdc/multipleCardinality", 
+                "valueBoolean": true
+              }, 
+              {
+                "url": "http://hl7.org/fhir/questionnaire-extensions#answerFormat", 
+                "valueCode": "string"
+              }
+            ]
+          },
+          {
+            "text" : "Physical problems",
+            "options": {
+              "reference": "#physical-problems-values"
+            },
+            "extension": [
+              {
+                "url": "http://sdc/multipleCardinality", 
+                "valueBoolean": true
+              }, 
+              {
+                "url": "http://hl7.org/fhir/questionnaire-extensions#answerFormat", 
+                "valueCode": "string"
+              }
+            ]
+          },
+          {
+            "text": "Other Problems"
+          }
+        ]
+      }     
+    ]
+  }
+}

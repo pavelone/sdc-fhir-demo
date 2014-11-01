@@ -14,11 +14,11 @@ angular.module('sdcApp', [
     }
   })
   .when('/view', {
-    templateUrl: 'views/main.html',
+    templateUrl: '/main.html',
     controller: 'MainCtrl'
   })
   .otherwise({
-    redirectTo: '/view/example'
+    redirectTo: '/example'
   });
 });
 
@@ -56,7 +56,7 @@ angular.module('sdcApp').service('Questionnaire', function($http){
 angular.module('sdcApp').directive('group', function($compile, $timeout){
   return {
     restrict: 'E',
-    templateUrl: 'views/group.html',
+    templateUrl: '/group.html',
     compile: function(tElement, tAttr, transclude) {
       var contents = tElement.contents().remove();
       var compiledContents;
@@ -76,6 +76,6 @@ angular.module('sdcApp').directive('group', function($compile, $timeout){
 angular.module('sdcApp').directive('question', function(){
   return {
     restrict: 'E',
-    templateUrl: 'views/question.html'
+    templateUrl: '/question.html'
   };
 });

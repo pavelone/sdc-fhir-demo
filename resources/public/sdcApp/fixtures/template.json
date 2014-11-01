@@ -1,0 +1,150 @@
+{
+  "resourceType": "Questionnaire",
+  "text": {
+    "status": "generated"
+  },
+  "contained": [{
+    "resourceType": "ValueSet",
+    "_id": "sex-values",
+    "name": "SexFakeValueSet",
+    "status": "draft",
+    "expansion": {
+      "timestamp": "2014-04-23T11:00:00",
+      "contains": [{
+        "code": "male",
+        "display": "Male"
+      }, {
+        "code": "female",
+        "display": "Female"
+      }, {
+        "code": "undifferentiated",
+        "display": "Undifferentiated"
+      }]
+    }
+  },{
+    "resourceType": "ValueSet",
+    "_id": "vitk-values",
+    "name": "VitaminKFakeDataSet",
+    "status": "draft",
+    "expansion": {
+      "timestamp": "2014-04-23T11:00:00",
+      "contains": [{
+        "code": "left_heel",
+        "display": "Left Heel"
+      }, {
+        "code": "right_heel",
+        "display": "Right Heel"
+      }, {
+        "code": "oral",
+        "display": "Orally"
+      },{
+        "code": "not_given",
+        "display": "Not given"
+      }]
+    }
+  }],
+  "status": "completed",
+  "authored": "2013-02-19T14:15:00",
+  "author": {
+    "reference": "http://www.hl7.org/fhir/Practitioner/1"
+  },
+  "name": {
+    "text": "NSW Government My Personal Health Record"
+  },
+  "group": {
+    "name": {
+      "coding": [
+        {
+          "code": "6.1"
+        }
+      ],
+      "text": "Birth details"
+    },
+    "header": "Birth details - To be completed by health professional",
+    "group": [
+      {
+        "header": "Demographics",
+        "question": [
+          {
+            "text": "Name of child"
+          },
+          {
+            "text": "Sex",
+            "options": {
+              "reference": "#sex-values"
+            },
+            "extension": [{
+              "url": "http://sdc/multipleCardinality",
+              "valueBoolean": false
+            }]
+          }
+        ]
+      },
+      {
+        "header": "Neonatal Information",
+        "question": [
+          {
+            "text": "Birth weight (kg)",
+            "answerDecimal": 3.25,
+            "extension": [{
+              "url": "http://sdc/answerType",
+              "valueString": "decimal"
+            }]
+          },
+          {
+            "text": "Birth length (cm)",
+            "answerDecimal": 44.3,
+            "extension": [{
+              "url": "http://sdc/answerType",
+              "valueString": "decimal"
+            }]
+          },
+          {
+            "text": "Vitamin K given",
+            "options": {
+              "reference": "#vitk-values"
+            },
+            "group": [
+              {
+                "header": "Vitamin K details",
+                "question": [
+                  {
+                    "text": "1st dose",
+                    "extension": [{
+                      "url": "http://sdc/answerType",
+                      "valueString": "date"
+                    }]
+                  },
+                  {
+                    "text": "2nd dose",
+                    "extension": [{
+                      "url": "http://sdc/answerType",
+                      "valueString": "date"
+                    }]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Hep B given y / n",
+            "answerBoolean": true,
+            "group": [
+              {
+                "header": "HepB Details",
+                "question": [
+                  {
+                    "text": "Date given"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Abnormalities noted at birth"
+          }
+        ]
+      }
+    ]
+  }
+}
