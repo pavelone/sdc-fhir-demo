@@ -1,0 +1,127 @@
+{
+  "resourceType": "Questionnaire",
+  "text": {
+    "status": "generated",
+    "div": "<div>\n  </div>"
+  },
+  "contained": [{
+    "resourceType": "ValueSet",
+    "id": "sent-home-clothing-values",
+    "name": "SentHomeClothingValueSet",
+    "status": "draft",
+    "expansion": {
+      "timestamp": "2014-04-23T11:00:00",
+      "contains": [{
+        "code": "coatjacket",
+        "display": "Coat/Jacket"
+      }, {
+        "code": "shirtblouse",
+        "display": "Shirt/Blouse"
+      }, {
+        "code": "underwear",
+        "display": "underwear"
+      }]
+    }
+  }],  
+  "name" : {
+    "coding" : [
+      {
+        "system" : "",
+        "code" : "",
+        "display" : "Patient Belongings"
+      }
+    ],
+    "text" : "VHH Patient Belongings form template"
+  },
+  "status": "draft",
+  "authored": "2014-05-01",
+  "group": {
+    "header": "USC VHH Patient Belongings Nursing Form",
+    "group": [
+      {
+        "question" : [
+          {
+            "text" : "Type"
+          },
+          {
+            "text" : "Location"
+          },
+          {
+            "extension": [{
+              "url": "http://hl7.org/fhir/questionnaire-extensions#answerFormat",
+              "valueCode": "dateTime"
+            }],
+            "text" : "Date/time"
+          },
+          {
+            "text" : "Owner"
+          },
+          {
+            "text" : "Owner name"
+          },
+          {
+            "text" : "Witness name"
+          },
+          {
+            "text" : "Witness Date/time"
+          }
+        ]
+      },
+      {
+        "header" : "Clothing",
+        "question" : [
+          {
+            "text" : "Sent Home",
+            "options": {
+              "reference": "#sent-home-clothing-values"
+            },
+            "extension": [
+              {
+                "url": "http://sdc/multipleCardinality", 
+                "valueBoolean": true
+              }, 
+              {
+                "url": "http://hl7.org/fhir/questionnaire-extensions#answerFormat", 
+                "valueCode": "string"
+              }
+            ]
+          },
+          {
+            "text" : "In the patient B. bag"
+          },
+          {
+            "text" : "In the SAFE"
+          }
+        ]
+      },
+      {
+        "header" : "Personal Equipment",
+        "question" : [
+          {
+            "text" : "Sent Home"
+          },
+          {
+            "text" : "In the patient B. bag"
+          },
+          {
+            "text" : "In the SAFE"
+          }
+        ]
+      },
+      {
+        "header" : "Personal Items",
+        "question" : [
+          {
+            "text" : "Sent Home"
+          },
+          {
+            "text" : "In the patient B. bag"
+          },
+          {
+            "text" : "In the SAFE"
+          }
+        ]
+      }
+    ]
+  }
+}
