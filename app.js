@@ -17293,7 +17293,8 @@ angular.module('sdcApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'formstamp'
 ])
 .config(function ($routeProvider) {
   $routeProvider
@@ -17414,8 +17415,8 @@ var htmlInputTypeFor = {
   "string": "text",
   "decimal": "number",
   "integer": "number",
-  "date": "date",
-  "dateTime": "datetime"
+  "date": "fs-date",
+  "dateTime": "fs-date"
 };
 
 
@@ -17532,43 +17533,83 @@ angular.module('sdcApp').run(['$templateCache', function($templateCache) {
     "  <form role=\"form\">\n" +
     "    <div class=\"form-group\">\n" +
     "\n" +
-    "      <label>\n" +
+    "      <!--label>\n" +
     "        {{\n" +
     "          question.text || \n" +
     "          question.name.text || \n" +
     "          question.name.coding[0].display || \n" +
     "          question.name.coding[0].code ||\n" +
     "          '(Nameless)'\n" +
-    "         }}</label>\n" +
+    "         }}</label-->\n" +
     "\n" +
-    "      <select multiple class=\"form-control\" \n" +
+    "      <!--select multiple class=\"form-control\" \n" +
     "        ng-model=\"question.responses.choice\"\n" +
     "        ng-if=\"options.length>0 && multiple\">\n" +
     "        <option ng-repeat=\"o in options\" ng-value=\"o.code\">\n" +
     "        {{o.display}}\n" +
     "        </option>\n" +
-    "      </select>\n" +
+    "      </select-->\n" +
+    "      <div ng-if=\"options.length>0 && multiple\">\n" +
+    "        <fs-form-for model=\"question\">\n" +
+    "          <fieldset class=\"form-horizontal\">\n" +
+    "            <strong>{{question.text}}</strong>\n" +
+    "            <!--fs-input as=\"fs-multiselect\" name=\"responses.choice\" freetext=\"\" label=\"{{question.text}}\" items=\"o\">{{ item }}</fs-input-->\n" +
+    "            <div fs-multiselect=\"\" ng-model=\"question.responses.choice\" items=\"options\">\n" +
+    "              {{item.display}}\n" +
+    "            </div>\n" +
+    "          </fieldset>\n" +
+    "        </fs-form-for>\n" +
+    "      </div>\n" +
     "\n" +
-    "      <select class=\"form-control\"\n" +
+    "      <!--select class=\"form-control\"\n" +
     "        ng-model=\"question.responses.choice\"\n" +
     "        ng-if=\"options.length>0 && !multiple\" >\n" +
     "        <option ng-repeat=\"o in options\" ng-value=\"o.code\">\n" +
     "        {{o.display}}\n" +
     "        </option>\n" +
-    "      </select>\n" +
+    "      </select-->\n" +
     "\n" +
-    "      <input type=\"{{inputType}}\" class=\"form-control\"\n" +
+    "      <div ng-if=\"options.length>0 && !multiple\">\n" +
+    "        <fs-form-for model=\"question\">\n" +
+    "          <fieldset class=\"form-horizontal\">\n" +
+    "            <strong>{{question.text}}</strong>\n" +
+    "            <!--fs-input as=\"fs-multiselect\" name=\"responses.choice\" freetext=\"\" label=\"{{question.text}}\" items=\"o\">{{ item }}</fs-input-->\n" +
+    "            <div fs-select=\"\" ng-model=\"question.responses.choice\" items=\"options\">\n" +
+    "              {{item.display}}\n" +
+    "            </div>\n" +
+    "          </fieldset>\n" +
+    "        </fs-form-for>\n" +
+    "      </div>\n" +
+    "\n" +
+    "      <!--input type=\"{{inputType}}\" class=\"form-control\"\n" +
     "      ng-model=\"question.responses.text[0]\"\n" +
-    "      ng-if=\"options.length==0 && !multiline\" />\n" +
-    "      \n" +
-    "      <textarea class=\"form-control\"\n" +
-    "      ng-model=\"question.responses.text[0]\"\n" +
-    "      ng-if=\"options.length==0 && multiline\" />\n" +
+    "      ng-if=\"options.length==0 && !multiline\" /-->\n" +
+    "      <div ng-if=\"options.length==0 && !multiline && (inputType=='text' || inputType=='number')\">\n" +
+    "        <fs-form-for model=\"question\">\n" +
+    "          <fieldset class=\"form-horizontal\">\n" +
+    "            <fs-input as=\"text\" name=\"responses.text[0]\" required=\"\" label=\"{{question.text}}\"></fs-input>\n" +
+    "          </fieldset>\n" +
+    "        </fs-form-for>\n" +
+    "      </div>\n" +
+    "\n" +
+    "      <div ng-if=\"options.length==0 && !multiline && inputType=='fs-date'\">\n" +
+    "        <fs-form-for model=\"question\">\n" +
+    "          <fieldset class=\"form-horizontal\">\n" +
+    "            <fs-input as=\"fs-date\" name=\"responses.text[0]\" required=\"\" label=\"{{question.text}}\"></fs-input>\n" +
+    "          </fieldset>\n" +
+    "          </fs-form-for>\n" +
+    "      </div>\n" +
+    "\n" +
+    "      <div ng-if=\"options.length==0 && multiline\">\n" +
+    "      <strong>{{question.text}}</strong>\n" +
+    "      <textarea class=\"form-control\" ng-model=\"question.responses.text[0]\"/>\n" +
+    "      </div>\n" +
     "\n" +
     "    </div>\n" +
     "  </form>\n" +
     "  <group ng-repeat=\"group in question.group\" />\n" +
-    "</div>\n"
+    "</div>\n" +
+    "\n"
   );
 
 }]);
