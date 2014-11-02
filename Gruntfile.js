@@ -72,6 +72,12 @@ module.exports = function (grunt) {
         expand: true,
         dest: app_prefix + 'fixtures/'
       },
+      fonts: {
+        cwd: 'app/fonts/',
+        src: ['**'],
+        expand: true,
+        dest: app_prefix + 'fonts/'
+      },
       ico: {
         src: 'app/favicon.ico',
         dest: app_prefix + 'favicon.ico'
