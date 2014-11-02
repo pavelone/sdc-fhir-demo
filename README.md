@@ -1,3 +1,12 @@
+See original readme from Josh Mandel below
+
+Distress screening form for cancer patients:
+http://www.nccn.org/patients/resources/life_with_cancer/pdf/nccn_distress_thermometer.pdf
+
+https://github.com/pavelone/sdc-fhir-demo/blob/lungcancer/app/fixtures/Distress-Thermometer.json
+
+Original readme:
+
 ## SDC --> FHIR Questionnaire prototype
 
 #### Demo online: [birth details questionnaire](http://joshuamandel.com/sdc-fhir-demo/app/#/view/example) | [event reporting example](http://joshuamandel.com/sdc-fhir-demo/app/#/view/converted)

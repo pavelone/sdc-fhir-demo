@@ -35,12 +35,14 @@ module.exports = function (grunt) {
           "app/bower_components/angular-resource/angular-resource.js",
           "app/bower_components/angular-cookies/angular-cookies.js",
           "app/bower_components/angular-sanitize/angular-sanitize.js",
-          "app/bower_components/angular-route/angular-route.js"
+          "app/bower_components/angular-route/angular-route.js",
+          "app/bower_components/angular-formstamp/build/formstamp.js"
         ],
         dest: app_prefix + 'lib.js'
       },
       lib_css: {
-        src: ['app/bower_components/bootstrap/dist/css/bootstrap.css'
+        src: ['app/bower_components/bootstrap/dist/css/bootstrap.css',
+        'app/bower_components/angular-formstamp/build/formstamp.css'
         ],
         dest: app_prefix + 'css/lib.css'
       },
@@ -88,7 +90,7 @@ module.exports = function (grunt) {
     },
     watch: {
       main: {
-        files: ['app/views/**/*', 'app/index.html', 'app/scripts/**/*.js', 'app/styles/**/*.css'],
+        files: ['app/views/**/*', 'app/index.html', 'app/scripts/**/*.js', 'app/styles/**/*.css', 'app/fixtures/*.json'],
         tasks: ['build'],
         options: {
           event: ['all'],

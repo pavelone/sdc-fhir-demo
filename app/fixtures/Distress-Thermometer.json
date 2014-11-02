@@ -56,6 +56,49 @@
   },
   {
     "resourceType": "ValueSet",
+    "id": "distress-levels-values",
+    "name": "DistressLevelsValueSet",
+    "status": "draft",
+    "expansion": {
+      "timestamp": "2014-04-23T11:00:00",
+      "contains": [{
+        "code": "code0",
+        "display": "0 - No distress"
+      }, {
+        "code": "code1",
+        "display": "1"
+      }, {
+        "code": "code2",
+        "display": "2"
+      }, {
+        "code": "code3",
+        "display": "3"
+      }, {
+        "code": "code4",
+        "display": "4"
+      }, {
+        "code": "code5",
+        "display": "5"
+      }, {
+        "code": "code6",
+        "display": "6"
+      }, {
+        "code": "code7",
+        "display": "7"
+      }, {
+        "code": "code8",
+        "display": "8"
+      }, {
+        "code": "code9",
+        "display": "9"
+      }, {
+        "code": "code10",
+        "display": "10 - Extreme distress"
+      }]
+    }
+  },
+  {
+    "resourceType": "ValueSet",
     "id": "emotional-problems-values",
     "name": "EmotionalProblemsValueSet",
     "status": "draft",
@@ -213,9 +256,12 @@
         "question" : [
           {
             "text" : "Distress",
+            "options": {
+              "reference": "#distress-levels-values"
+            },
             "extension": [{
-              "url": "http://hl7.org/fhir/questionnaire-extensions#answerFormat",
-              "valueCode": "decimal"
+              "url": "http://sdc/multipleCardinality",
+              "valueBoolean": false
             }]
           }
         ]
@@ -304,7 +350,17 @@
             ]
           },
           {
-            "text": "Other Problems"
+            "text": "Other Problems",
+            "extension":[
+              {
+                "url":"http://tcm7.com.au/fhir#multiline",
+                "valueBoolean":true
+              },
+              {
+                "url":"http://hl7.org/fhir/questionnaire-extensions#answerFormat",
+                "valueCode":"string"
+              }
+            ]           
           }
         ]
       }     

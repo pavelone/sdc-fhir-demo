@@ -4,7 +4,8 @@ angular.module('sdcApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'formstamp'
 ])
 .config(function ($routeProvider) {
   $routeProvider

@@ -43,8 +43,8 @@ var htmlInputTypeFor = {
   "string": "text",
   "decimal": "number",
   "integer": "number",
-  "date": "date",
-  "dateTime": "datetime"
+  "date": "fs-date",
+  "dateTime": "fs-date"
 };
 
 

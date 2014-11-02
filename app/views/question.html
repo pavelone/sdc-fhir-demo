@@ -2,40 +2,80 @@
   <form role="form">
     <div class="form-group">
 
-      <label>
+      <!--label>
         {{
           question.text || 
           question.name.text || 
           question.name.coding[0].display || 
           question.name.coding[0].code ||
           '(Nameless)'
-         }}</label>
+         }}</label-->
 
-      <select multiple class="form-control" 
+      <!--select multiple class="form-control" 
         ng-model="question.responses.choice"
         ng-if="options.length>0 && multiple">
         <option ng-repeat="o in options" ng-value="o.code">
         {{o.display}}
         </option>
-      </select>
+      </select-->
+      <div ng-if="options.length>0 && multiple">
+        <fs-form-for model="question">
+          <fieldset class="form-horizontal">
+            <strong>{{question.text}}</strong>
+            <!--fs-input as="fs-multiselect" name="responses.choice" freetext="" label="{{question.text}}" items="o">{{ item }}</fs-input-->
+            <div fs-multiselect="" ng-model="question.responses.choice" items="options">
+              {{item.display}}
+            </div>
+          </fieldset>
+        </fs-form-for>
+      </div>
 
-      <select class="form-control"
+      <!--select class="form-control"
         ng-model="question.responses.choice"
         ng-if="options.length>0 && !multiple" >
         <option ng-repeat="o in options" ng-value="o.code">
         {{o.display}}
         </option>
-      </select>
+      </select-->
 
-      <input type="{{inputType}}" class="form-control"
+      <div ng-if="options.length>0 && !multiple">
+        <fs-form-for model="question">
+          <fieldset class="form-horizontal">
+            <strong>{{question.text}}</strong>
+            <!--fs-input as="fs-multiselect" name="responses.choice" freetext="" label="{{question.text}}" items="o">{{ item }}</fs-input-->
+            <div fs-select="" ng-model="question.responses.choice" items="options">
+              {{item.display}}
+            </div>
+          </fieldset>
+        </fs-form-for>
+      </div>
+
+      <!--input type="{{inputType}}" class="form-control"
       ng-model="question.responses.text[0]"
-      ng-if="options.length==0 && !multiline" />
-      
-      <textarea class="form-control"
-      ng-model="question.responses.text[0]"
-      ng-if="options.length==0 && multiline" />
+      ng-if="options.length==0 && !multiline" /-->
+      <div ng-if="options.length==0 && !multiline && (inputType=='text' || inputType=='number')">
+        <fs-form-for model="question">
+          <fieldset class="form-horizontal">
+            <fs-input as="text" name="responses.text[0]" required="" label="{{question.text}}"></fs-input>
+          </fieldset>
+        </fs-form-for>
+      </div>
+
+      <div ng-if="options.length==0 && !multiline && inputType=='fs-date'">
+        <fs-form-for model="question">
+          <fieldset class="form-horizontal">
+            <fs-input as="fs-date" name="responses.text[0]" required="" label="{{question.text}}"></fs-input>
+          </fieldset>
+          </fs-form-for>
+      </div>
+
+      <div ng-if="options.length==0 && multiline">
+      <strong>{{question.text}}</strong>
+      <textarea class="form-control" ng-model="question.responses.text[0]"/>
+      </div>
 
     </div>
   </form>
   <group ng-repeat="group in question.group" />
 </div>
+
