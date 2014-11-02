@@ -3,7 +3,11 @@ See original readme from Josh Mandel below
 Distress screening form for cancer patients:
 http://www.nccn.org/patients/resources/life_with_cancer/pdf/nccn_distress_thermometer.pdf
 
+Json for FHIR questionnaire resource:
 https://github.com/pavelone/sdc-fhir-demo/blob/lungcancer/app/fixtures/Distress-Thermometer.json
+
+The form for capturing data:
+http://pavelone.github.io/sdc-fhir-demo/index.html#/view?q=fixtures%2FDistress-Thermometer.json
 
 Original readme:
 
